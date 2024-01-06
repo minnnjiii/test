@@ -6,6 +6,7 @@
 # 여러가지 숫자들의 조합 = 수열
 # 여러가지 문자들의 조합 = 문자열
 
+# 배열
 # list(map(int,input().split()))
 # list(map(str,input().split()))
 
