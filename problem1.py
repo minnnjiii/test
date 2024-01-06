@@ -15,6 +15,3 @@ listM = list(map(str,input().split()))
 
 print(*listMin)
 print(*listM)
-
-
-
