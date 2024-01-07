@@ -9,9 +9,9 @@ X대학 M교수님은 프로그래밍 수업을 맡고 있다. 교실엔 학생�
 
 num = [i for i in range(1,31)]
 
-for _ in range(28):
+for i in range(28):
     data = int(input())
     num.remove(data)
 print(num[0])
-print(num(1))
+print(num[1])
 
