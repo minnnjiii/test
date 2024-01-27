@@ -11,4 +11,4 @@ for i in range(1,int(n**0.5)+1):
 
 jewel.sort()
 print(len(jewel))
-print(*jewel)
+print(' '.join(map(str,jewel)))
