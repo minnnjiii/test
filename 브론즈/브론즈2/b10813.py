@@ -2,4 +2,11 @@
 
 N, M = map(int,input().split())
 
-dsdfaadsfadsfafsd
+b = [i for i in range(1,N+1)]
+
+for i in range(M):
+    i, j = map(int,input().split())
+    b[i-1],b[j-1] = b[j-1],b[i-1]
+    
+for i in range(N):
+    print(b[i], end=' ')
