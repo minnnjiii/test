@@ -7,4 +7,5 @@ if M <= 2:
 elif M > 2 and M <= N:
     print("OLDBIE!")
 else:
+    
     print("TLE!")
