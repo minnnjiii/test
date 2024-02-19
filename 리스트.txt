@@ -1,0 +1,129 @@
+📁 리스트 
+    📁 Array list
+        📁 Array
+        📁 Dynamic array
+    📁 Linked list
+        📁 Node
+
+
+
+
+
+
+
+🔎 (static) array
+
+    💡 배열의 특성
+        1️⃣ 고정된 저장 공간(fiexed-size)
+        2️⃣ 순차적인 데이터 저장(order)
+
+    💡 배열은 선언시에 size를 정하여 해당 size만큼의 연속된 메모리를 할당 받아 data를 
+    연속적/순차적으로 저장하는 자료구조임 
+
+    C언어를 예로 들겠음
+    int arr[5] = {3, 7, 4, 2, 6} // size가 5인 int형 배열 선언 
+
+    위의 예시에서는 배열의 size를 5로 정했기 때문에
+    int형 데이터(4byte) 5개를 저장할 메모리 공간인 20 Byte를 
+    미리 할당을 받음. 
+    이처럼 고정된 size를 갖게 되기 때문에 static array라고 부르기도 함
+
+    4byte(int형 데이터) * 5(size) = 20byte
+
+    또한 배열의 데이터를 연속적이고 순차적으로 메모리에 저장함
+
+    💡 Random access
+    메모리에 저장된 데이터에 접근하려면 주소값을 알아야함. 
+    배열변수는 자신이 할당받은 메모리의 첫 번째 주소값을 가리킴. 
+    배열은 연속적/순차적으로 저장되어 있기 때문에 
+    첫 주소값만 알고 있다면 어떤 Index에도 즉시 접근이 가능함. 
+    이를 direct access 또는 Random access라고 부름.
+
+    첫 번째 데이터가 저장된 주소값이 0x4AF55라면 
+    2번 째 데이터는 0x4AF55 + 4*1에 저장되어 있음. 
+    세 번째 데이터는 0x4AF55 + 4*2에 저장되어 있고 
+    n번째 데이터는 0x4AF55 + 4*(n-1)에 저장되어 있을 것임. 
+    아무리 긴 배열이더라도 한 번의 연산으로 원하는 데이터에 바로 접근할 수 있음
+    즉 O(1)의 시간 복잡도를 가짐. 
+
+    linked list는 메모리상에서 연속적/순차적으로 저장되어 있지 않기 때문에 
+    random access는 불가능함. 
+    n번째 데이터에 접근하기 위해서 
+    array는 1번의 연산만 해도 되지만(O(n)),
+    linked list는 n번의 연산을 해야 하기 때문에 시간복잡도는 O(n)이 됨
+
+
+    💡 static array 한계 
+    데이터의 갯수가 정해져 있는 경우에는 static array를 사용하는 것이 매우 효율적임
+    하지만 선언시에 정한 size보다 더 많은 데이터를 저장해야 하는 경우
+    공간이 남아있지 않아서 문제가 발생할 수 있음. 
+    그렇다고 매번 크기가 엄청 큰 배열을 선언한다면 그만큼 메모리 비효율이 발생하게 됨 
+    이런 문제점을 해결할 수 있는 것이 바로 dynamic array임 
+
+
+
+
+
+
+
+🔎 Dynamic array 동적배열
+
+    💡 선언 이후에 size를 변경할 수 없는 정적배열(static array)와 다르게
+    동적 배열(dynamic array)는 size를 늘릴 수 있음
+
+    💡 동적배열(dynamic array)는 배열의 크기(size)를 변경(resizing)할 수 있는 배열임 
+    fiexed-size인 static array의 한계점을 보안하고자 고안되었음. 
+    동적배열에 데이터를 계속 추가하다가 기존에 할당된 size를 초과하게 되면
+    size를 늘린 배열을 새로 선언하고 그곳으로 모든 데이터를 옮김 
+    그리고 기존의 배열은 메모리에서 삭제(free)함. 
+    이 과정을 resize라고 함. 
+    resize를 한 칸씩 늘린다면 비효율적이므로 일반적으로 2배 큰 크기로 resize함
+    이를 더블링(Doubling)이라고 함. 
+    resize 덕분에 데이터를 추가 저장할 수 있게 됨 
+
+
+    💡 Dynamic array 사용법
+    선언시에 배열의 크기를 정하지 않아도 되기 때문에 
+    코딩테스트에서 dynamic array를 자주 사용하게 됨
+
+    python에서는 list 자료형을 통해 dynamic array을 
+    이미 잘 구현해 두었기 때문에 직접 구현할 필요 없이 사용할 수 있음 
+
+    즉 문제에서 배열을 사용해야 하는 경우에는 list를 선언하여 사용하면 됨 
+    익혀야 할 것은 list의 연산(operation)들과 시간복잡도임 
+
+
+
+
+
+🔖 배열의 다양한 활용
+    1️⃣ 반복문
+    2️⃣ sort & two pointer
+
+
+
+
+🔖 Two sum
+    정수가 저장된 배열 nums이 주어졌을 때, 
+    nums의 원소 중 두 숫자를 더해서 
+    target이 될 수 있으면 True 불가능하면 False를 반환하라. 
+    같은 원소를 두 번 사용할 수 없음
+
+    ⛔️ 제약조건
+    2 <= nums.length <= 10^4
+    -10^9 <= nums[i] <= 10^9
+    -10^9 <= target <= 10^9
+
+    ⭕️ input : nums = {4,1,9,7,5,3,16},target : 14
+    ⭕️ output : True
+
+    ⭕️ input : nums = {2,1,5,7}, target : 4
+    ⭕️ output : False
+
+
+
+
+
+    
+
+
