@@ -5,11 +5,17 @@ n = int(input()) # test case 갯수
 
 
 for i in range(n) : 
-    binary = 0 
+    
     num = int(input())
-    binary += num//2 
+    binary = 0 
 
-print(binary)
+    while num > 0 : 
+        if num % 2 == 1 : 
+            print(binary, end = ' ')
+        num = num // 2 
+        binary += 1 
+
+
     
 
 '''
