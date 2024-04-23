@@ -15,9 +15,9 @@ prefix = [[ 0 for _ in range(N+1)] for _ in range(N+1)]
     
 # 누적합 표 만들기
 for y in range(N):
-    for x in range(N):
+    for x in range(N): 
         prefix[y+1][x+1] = prefix[y][x+1] + prefix[y+1][x] - prefix[y][x] + graph[y][x]
-
+   
 for _ in range(M):
     x1,y1,x2,y2 = map(int,input().split()) 
 
