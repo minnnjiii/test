@@ -8,6 +8,20 @@ input = sys.stdin.readline
 
 N, M = map(int,input().split())
 
-sequence = []
+arr = []
+def recur(number):
+    for i in range(1,N+1):
+        if i in arr:
+            continue
+        arr.append(i)
+        recur(number+1)
+        arr.pop()
 
+    if number == M:
+        print(*arr)
+        return 
+
+    
+
+recur(0)
 
