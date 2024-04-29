@@ -25,7 +25,7 @@ def recur(idx,a,b,c,d,price):
     recur(idx+1,nut[idx][0]+a,nut[idx][1]+b,nut[idx][2]+c,nut[idx][3]+d,nut[idx][4]+price)
     recur(idx+1, nut[idx][0], nut[idx][1], nut[idx][2], nut[idx][3], nut[idx][4])
 
-ㅊ
+
 def _recur(_idx):
 
     if _idx == N:
