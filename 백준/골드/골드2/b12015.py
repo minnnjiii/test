@@ -1,5 +1,5 @@
 # 가장 긴 증가하는 부분 수열 2
-# 백준/12015번
+# 백준/12015번d
 
 import sys
 input = sys.stdin.readline
