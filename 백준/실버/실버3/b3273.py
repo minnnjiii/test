@@ -6,13 +6,28 @@ input = sys.stdin.readline
 
 
 n = int(input()) 
-arr = list(map(int,input().split())) 
-ans = int(input())
+arr = sorted(list(map(int,input().split())))
+x = int(input())
 
-arr.sort()
+
+# 두 개의 마우스 커서, 포인터
+
+s = 0
+e = n-1
+
+
 cnt = 0
-while True:
-    for i in range(n):
-        if arr[i] + arr[-1] == ans:
-            cnt += 1 
-            
+while s < e: # s == e 만나면 멈추기
+
+    # 정답 조건
+    if arr[s] + arr[e] == x:
+        cnt += 1 
+
+    if arr[s] + arr[e] >= x : 
+        e -= 1 
+    else:
+        s += 1 
+
+
+
+print(cnt)
