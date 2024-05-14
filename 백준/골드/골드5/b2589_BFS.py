@@ -35,7 +35,6 @@ for y in range(Y) :
                             if visited[ny][nx] == 0 : # 방문한적이 없다면
                                 visited[ny][nx] = 1 
                                 dist[ny][nx] = max(dist[ey][ex] + 1, dist[ny][nx])
-  
                                 if maxi < dist[ny][nx] :
                                     maxi = dist[ny][nx]
                                 
