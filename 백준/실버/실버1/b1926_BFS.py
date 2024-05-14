@@ -2,37 +2,38 @@
 # 그림
 
 from collections import deque
-import sys
-input = sys.stdin.readline
 
-Y, X = map(int,input().split()) 
-graph = [list(map(int,input().split())) for _ in range(Y)]
+def bfs(x , y) : 
+    graph[x][y] = 0
+    dx = [1,-1,0,0]
+    dy = [0,0,1,-1]
+    w = 1
+    q =deque()
+    q.append([x,y])
+    while q : 
+        x, y = q.popleft()
+        for i in range(4):
+            nx = dx[i] + x
+            ny = dy[i] + y
 
-maxi = 0
+            if 0 <= nx < n and 0 <= ny < m :
+                if graph[nx][ny] == 1 :
+                    q.append([nx, ny]) 
+                    graph[nx][ny] = 0
+                    w += 1
+    return w
 
-for y in range(Y):
-    for x in range(X):
-        if graph[y][x] == 1 : 
-            visited = [[0 for _ in range(X)] for _ in range(Y)]
-            dist = [[0 for _ in range(X)] for _ in range(Y)]
 
-            # BFS
-            q = deque()
-            q.append([y,x])
-            visited[y][x] = 0 
-            while q :
-                ey, ex = q.popleft()
 
-                for dy,dx in [[0,1],[1,0],[-1,0],[0,-1]] :
-                    ny, nx = ey + dy, ex + dx 
-                    if 0 <= ny < Y and 0 <= nx < X :
-                        if graph[ny][nx] == 1 :
-                            if visited[ny][nx] == 1 :
-                                visited[ny][nx] = 0
-                                dist[ny][nx] = max(dist[ey][ex] + 1, dist[ny][nx])
-                                if maxi < dist[ny][nx] :
-                                    maxi = dist[ny][nx]
+n, m = map(int,input().split()) 
+graph = [list(map(int,input().split())) for _ in range(n)] 
+cnt = 0
+ans = 0
+for i in range(n):
+    for j in range(m):
+        if graph[i][j] == 1:
+            cnt += 1
+            ans = max(bfs(i,j),ans)
 
-                                q.append((ny,nx))
-
-print(maxi)
+print(cnt)
+print(ans)
