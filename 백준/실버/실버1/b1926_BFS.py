@@ -34,6 +34,7 @@ for i in range(n):
         if graph[i][j] == 1:
             cnt += 1
             ans = max(bfs(i,j),ans)
+            
 
 print(cnt)
 print(ans)
