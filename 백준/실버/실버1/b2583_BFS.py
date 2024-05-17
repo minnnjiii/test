@@ -31,14 +31,13 @@ def bfs(x,y):
 
 # M = 세로, N = 가로
 M , N , K = map(int,input().split())
-graph = [[0]*N for _ in range(M)] 
+graph = [[0] * N for _ in range(M)] 
 
 for _ in range(K) :
     x1, y1, x2, y2 = map(int,input().split())
     for i in range(x1,x2):
-        for j in range(M-y1-1, M-y2-1, -1):
+        for j in range(M -y1 -1, M -y2 -1, -1):
             graph[j][i] = 1
-
 
 result = []
 for i in range(M):
@@ -50,5 +49,3 @@ result.sort()
 print(len(result))
 for i in result:
     print(i, end=' ')
-        
-        
