@@ -11,8 +11,7 @@ for _ in range(n):
     stack = []
 
     for s in text:
-        if stack :
-            if stack[-1] == s :
+        if stack and stack[-1] == s :
                 stack.pop() 
 
         else:
