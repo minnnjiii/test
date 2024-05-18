@@ -11,9 +11,9 @@ N, M, V = map(int,input().split())
 # M 간선의 개수
 # V 탐색을 시작할 번호 
 
+# 그래프 만들기
 graph = [[] for _ in range(N + 1)]
-visited_DFS = [0] * (N + 1) 
-
+# 그래프 채우기
 for i in range(M):
     a, b = map(int,input().strip().split())
     graph[a].append(b)
@@ -21,22 +21,23 @@ for i in range(M):
     graph[a].sort()
     graph[b].sort() 
 
+# DFS로 풀기
+# DFS는 재귀로 구현합니다
+visited_DFS = [0] * (N + 1) 
 def dfs(N):
-    visited_DFS[N] = 1
+    visited_DFS[N] = 1 # 방문한거 흔적 남기기
     print(N, end=" ")
     for i in graph[N]:
-        if not visited_DFS[i]:
-            dfs(i)
+        if not visited_DFS[i]: #방문하지 않은 곳이라면
+            dfs(i) 
 
-dfs(V)
-print()
 
+# BFS로 풀기
+# BFS는 deque와 popleft로 구현합니다
 visited_BFS = [0] * (N + 1)
-
-
 def bfs():
-    q = deque()
-    q.append(V)
+    q = deque() # q에 덱 하나 만들어주기
+    q.append(V) # 내가 출발할 위치인 V 넣기
     visited_BFS[V] = 1
     while q :
         node = q.popleft()
@@ -47,4 +48,6 @@ def bfs():
                 q.append(i)
                 visited_BFS[i] = 1
 
+dfs(V)
+print()
 bfs()
