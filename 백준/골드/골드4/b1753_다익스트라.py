@@ -1,6 +1,7 @@
 # 최단경로
 # 백준/1753번
 
+from collections import deque
 import sys
 input = sys.stdin.readline
 
@@ -11,12 +12,19 @@ V, E = map(int,input().split())
 K = int(input())
 
 # graph 만들기 
-graph = []
+links = [[] for _ in range(V+1)]
+visited = [0 for _ in range(V+1)] # BFS를 하려면 visit 처리를 해줘야함!
+
 # 각 간선을 나타내는 세 개의 정수 u, v, w 입력 받기
 # u에서 v로 가는 가중치 w인 간선
 for _ in range(E):
-    uvw = list(map(int,input().split()))
-    graph.append(uvw)
+    u,v,w = map(int,input().split())
+    links[u].append([v,w])
+
+# BFS
+q = deque()
+q.append(K) 
+visited[]
 
 dijkstra = [0 * (V)]
 
