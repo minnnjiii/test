@@ -24,7 +24,7 @@ for _ in range(E):
 # BFS
 q = deque()
 q.append(K) 
-visited[]
+visited
 
 dijkstra = [0 * (V)]
 
