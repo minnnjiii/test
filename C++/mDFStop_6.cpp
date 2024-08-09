@@ -1,43 +1,66 @@
 #include <iostream>
-#include <vector>
-
+#include <string>
 using namespace std;
 
-// DFS_top_6_돌다리도 두들겨 건너기
+string player;
+string angel;
+string devil;
+int stone_length;
 
-string find_str; // 두루마리에 적힌 문자열을 받을 변수 str
-string angel, devil; // 두루마리에 적힐 문자열
-
-int str_len = 0; // 찾을 문자열의 길이
-int bridge_len = 0; // 문자열 길이
-
-
-int ans = 0; // 다리를 건널 수 있는 방법의 수 
-
-
-
-
-void recur(int now, int cnt)
+// str : 플레이어 스크롤 문자 1번 index 부터 시작
+// dir : 천사, 악마 돌다리 위치 1은 천사, 0은 악마
+// idx : 돌다리에서 플레이어 위치 부터 시작
+int dfs(int scrollIdx, int dir, int idx)
 {
-    // 원하는 문자열이 만들어졌다면 종료
-    
-    
-    
-    
+    if (scrollIdx == player.length())
+    {
+        return 1;
+    }
+  
+  	if (idx > player.length())
+    {
+      return 0;
+    }
+    // 천사인 경우
+    if (dir == 0)
+    {
+        for (int i = idx; i < stone_length; i++)
+        {
+            if (player[scrollIdx] == devil[i])
+            {
+                dfs(scrollIdx + 1, 1, i + 1);
+            }
+        }
+
+    }
+    // 악마인 경우
+    else if (dir == 1)
+    {
+        for (int i = idx; i < stone_length; i++)
+        {
+            if (player[scrollIdx] == angel[i])
+            {
+                dfs(scrollIdx + 1, 0, i + 1);
+            }
+        }
+    }
     
 }
 
 
 int main()
 {
-    cin >> find_str; // 두루마리에 적힌 문자열을 받을 변수 str
-    
-    cin >> devil; // 악마의 돌다리를 나타내는 길이의 문자열
-    cin >> angel; // 천사의 돌다리를 나타내는 길이의 문자열
-    
-    str_len = find_str.size(); // 찾을 문자열의 길이
-    bridge_len = angel.size(); // 문자열 길이
+    cin >> player;
+    cin >> angel;
+    cin >> devil;
 
-    
+    stone_length = angel.length();
+    int res = 0;
 
+     res += dfs(0, 1, 0);
+      
+    
+     res += dfs(0, 0, 0);
+
+    cout << res;
 }
