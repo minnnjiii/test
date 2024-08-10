@@ -2,10 +2,9 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "C/C++: clang 활성 파일 빌드",
-            "command": "/usr/bin/clang++", // clang++로 변경
+            "label": "C/C++: clang++ 활성 파일 빌드",
+            "command": "/usr/bin/clang++",
             "args": [
-                "-std=c++11",                // C++11 표준 사용
                 "-fcolor-diagnostics",
                 "-fansi-escape-codes",
                 "-g",
@@ -19,10 +18,7 @@
             "problemMatcher": [
                 "$gcc"
             ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
+            "group": "build",
             "detail": "디버거에서 생성된 작업입니다."
         }
     ],

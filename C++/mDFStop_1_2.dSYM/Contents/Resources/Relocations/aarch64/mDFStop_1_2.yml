@@ -1,0 +1,13 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     "/Users/jeongminji/Desktop/백준/test/C++/mDFStop_1_2"
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: __Z5recuri, symObjAddr: 0x0, symBinAddr: 0x100003DA8, symSize: 0xF8 }
+  - { offsetInCU: 0x3F, offset: 0x3F, size: 0x8, addend: 0x0, symName: _n, symObjAddr: 0x5AE4, symBinAddr: 0x100008000, symSize: 0x0 }
+  - { offsetInCU: 0x5B, offset: 0x5B, size: 0x8, addend: 0x0, symName: _twin, symObjAddr: 0x5AE8, symBinAddr: 0x100008004, symSize: 0x0 }
+  - { offsetInCU: 0x70, offset: 0x70, size: 0x8, addend: 0x0, symName: _arr, symObjAddr: 0x5AEC, symBinAddr: 0x100008008, symSize: 0x0 }
+  - { offsetInCU: 0x9E, offset: 0x9E, size: 0x8, addend: 0x0, symName: _visited, symObjAddr: 0xFA50, symBinAddr: 0x100011F6C, symSize: 0x0 }
+  - { offsetInCU: 0xBF, offset: 0xBF, size: 0x8, addend: 0x0, symName: _ans, symObjAddr: 0xFBE4, symBinAddr: 0x100012100, symSize: 0x0 }
+  - { offsetInCU: 0x2E65, offset: 0x2E65, size: 0x8, addend: 0x0, symName: __Z5recuri, symObjAddr: 0x0, symBinAddr: 0x100003DA8, symSize: 0xF8 }
+  - { offsetInCU: 0x2EA9, offset: 0x2EA9, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0xF8, symBinAddr: 0x100003EA0, symSize: 0xF0 }
+...
