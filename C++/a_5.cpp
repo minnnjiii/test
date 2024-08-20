@@ -23,6 +23,8 @@ int visited[101];
 
 // now = 현재 나무 길이 
 // ans = 며칠 걸렸는지, 나무 자라는데 며칠 걸렸는지 확인하기 위한 변수임
+// idx = 4개의 나무가 있으면 4개 다 최고 길이가 될때까지 검사해야하잖아. 그 4개를 다 돌았는지 확인하기 위한 idx변수임
+// cnt = 얘가 첫째날을 거쳤는지 확인하기 위한 변수임. 첫째날 거치지 않고 바로 둘째날 가는 경우를 제외하기 위함
 void recur(int now, int oddDays, int evenDays, int ans, int idx)
 {
     
