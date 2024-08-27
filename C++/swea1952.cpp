@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <cstring>
 
 using namespace std;
 
@@ -15,12 +16,30 @@ int T; // test case
 int daysPrice, monthPrice, threeMonthPrice, yearPrice; // 1일 이용권의 요금, 1달 이용권의 요금, 3달 이용권의 요금, 1년 이용권의 요금
 int plan[12];
 int ans;
+int dp[12];
 
+void recur(int idx, int price) {
 
-void recur(int idx){
 
     
+    if (idx == 12)
+    {
+        ans = min(price, ans);
+        return;
+    }
 
+    if (idx > 12)
+    {
+
+        ans = min(price, ans);
+        return;
+    }
+
+
+   recur(idx + 3, price+threeMonthPrice);
+   recur(idx + 1, price+plan[idx]);
+
+        
 
 }
 
@@ -28,21 +47,22 @@ void recur(int idx){
 
 int main()
 {
-    
+
     cin >> T; // test case
     for (int testcase = 0; testcase < T; testcase++)
-    {    
-        ans = 0;
+    {
+        ans = 21e8;
         memset(plan, 0, sizeof(plan));
         cin >> daysPrice >> monthPrice >> threeMonthPrice >> yearPrice;  // 1일 이용권의 요금, 1달 이용권의 요금, 3달 이용권의 요금, 1년 이용권의 요금
-        
+
         // 12개월 이용 계획 받기
         for (int k = 0; k < 12; k++)
         {
             cin >> plan[k];
         }
-        
-        
+
+
+
         // 1일 이용권으로만 구성했을 때와 한 달 이용권으로만 구성했을 때의 
         // 가격을 비교했을 때 더 저렴한 가격을 ans에 더 해주기
         // 왜냐?? 우리는 최소 비용을 찾고 있으니까! 
@@ -51,25 +71,28 @@ int main()
             int t = plan[i] * daysPrice;
             if (t < monthPrice)
             {
-                ans += t;
+                plan[i] = t;
             }
             else
             {
-                ans += monthPrice;
+                plan[i] = monthPrice;
             }
         }
 
 
         // recur부르기 
 
+        recur(0,0);
 
+       
+        
 
         if (ans > yearPrice)
         {
             ans = yearPrice;
         }
-
-
+        
+        
         // 정답 출력
         cout << '#' << testcase + 1 << ' ' << ans << '\n';
     }
