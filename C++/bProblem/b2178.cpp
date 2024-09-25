@@ -30,7 +30,7 @@ int main(){
             scanf("%1d", &a[i][j]);
         }
     } 
-
+    
     // 두 변수를 저장할 수 있게 pair<int,int> 사용
     queue<pair<int, int>> q;  
 
