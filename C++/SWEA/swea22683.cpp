@@ -1,6 +1,6 @@
 #include <iostream>
-#include <vector>
 #include <queue>
+#include <algorithm>
 
 
 using namespace std;
@@ -17,16 +17,52 @@ using namespace std;
 
 // 차윤은 항상 위를 바라보는 상태로 RC카 조작 시작
 
+
+// ⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️ 필요한 변수들 선언 ⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️
+
 int T; //test case
 int N, K; //맵의 크기 N, 나무를 벨 수 있는 횟수 K
 int init_X, init_Y; // RC카의 처음 시작 위치
 int target_X, target_Y; // 목표지점
-char visited[10][10] = {0,};
+char map[10][10]; // 맵 정보를 받을 2차 배열 선언
+char visited[10][10] = {0,}; // 방문 여부 체크할 배열 선언
 
-struct Position
-{
-    int x,y;
+struct State {
+    int x, y, dir, cuts, moves;
+    // x좌표, y좌표, 현재 방향, 나무를 자를 수 있는 횟수, 얼마나 움직였는지
 };
+
+int dx[4] = {-1, 0, 1, 0}; // 북, 동, 남, 서 방향 이동
+int dy[4] = {0, 1, 0, -1};
+
+// ⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆
+// ⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️ 필요한 변수들 선언 ⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️
+
+
+
+
+// ⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️
+// ⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️BFS 함수 ⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️
+
+int BFS(int startX, int startY, int endX, int endY)
+{
+    
+
+
+
+}
+
+
+// ⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️
+// ⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️ BFS 함수 ⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️
+
+
+
+
+
+
+
+
 
 int main()
 {
@@ -34,9 +70,8 @@ int main()
     for (int testcase = 0; testcase < T; testcase++)
     {
         cin >> N >> K; //맵의 크기 N, 나무를 벨 수 있는 횟수 K
-        vector<vector<char>> map(N, vector<char>(N)); // 맵 초기화
         
-        // ---------- 맵 정보 입력 받기 ------------
+        // ⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️ 맵 정보 입력 받기 ⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️
         for (int i = 0; i < N; i++)
         {
             for (int j = 0; j < N; j++)
@@ -55,20 +90,9 @@ int main()
 
             }
         }
-        // ---------- 맵 정보 입력 받기 ------------
+        // ⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆
+        // ⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️ 맵 정보 입력 받기 ⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️
         
-        // BFS 
-        
-        queue<Position> q;
-        visited[init_X][init_Y] = 1;
-        q.push({init_X, init_Y});
-
-        while (!q.empty())
-        {
-            Position now = q.front();
-            q.pop();
-
-        }
         
 
         cout << '#' << testcase + 1 << ' ' << '\n';
