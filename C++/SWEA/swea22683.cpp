@@ -25,7 +25,7 @@ int N, K; //맵의 크기 N, 나무를 벨 수 있는 횟수 K
 int init_X, init_Y; // RC카의 처음 시작 위치
 int target_X, target_Y; // 목표지점
 char map[10][10]; // 맵 정보를 받을 2차 배열 선언
-char visited[10][10] = {0,}; // 방문 여부 체크할 배열 선언
+char visited[10][10][4][6];
 
 struct State {
     int x, y, dir, cuts, moves;
@@ -46,8 +46,14 @@ int dy[4] = {0, 1, 0, -1};
 
 int BFS(int startX, int startY, int endX, int endY)
 {
-    
+    // visited를 -1로 초기화
+    memset(visited, -1, sizeof(visited));
+    queue<State> q;
+    q.push({startX, startY, 0,0,0}); // 시작 위치, 방향(북쪽), 나무 자른 횟수, 이동 횟수
+    visited[startX][startY][0][0] = 0;
 
+    
+    
 
 
 }
