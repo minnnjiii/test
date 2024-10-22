@@ -155,9 +155,10 @@ void findGoal(POS start, POS end, vector<string>& result, int b2) {
                 result[0] = ("T");
             }
             return;
-        } 
+        }
         //오른쪽에 있을 때
-        else if (end.x < map_width - 1 && current.x == end.x + 1 && current.y == end.y) {
+        else if (end.x < map_width - 1 && current.x == end.x + 1 && current.y == end.y) 
+        {
             current.path.push_back("U F M");
             result = current.path;
             if (current.fired == true) {
