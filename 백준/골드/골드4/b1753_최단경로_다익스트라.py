@@ -2,8 +2,10 @@
 # 백준/1753번
 
 from collections import deque
+import heapq
 import sys
 input = sys.stdin.readline
+
 
 # 정점의 개수 V, 간선의 개수 E
 V, E = map(int,input().split()) 
@@ -24,7 +26,8 @@ for _ in range(E):
 # BFS
 q = deque()
 q.append(K) 
-visited
+visited[K] = 1
+ 
 
 dijkstra = [0 * (V)]
 
