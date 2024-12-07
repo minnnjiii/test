@@ -7,30 +7,36 @@
 
 N = int(input())
 
-graph = [ '.'*N for _ in range(N)]
+graph = [] 
+
+for _ in range(N):
+    graph.append(list(input().strip()))  # 한 줄씩 입력받기
 
 
+xCnt = 0 # 가로로 누울 수 있는 자리의 수
+yCnt = 0 # 세로로 누울 수 있는 자리의 수 
+
+# 가로 탐색
+for i in range(N): 
+    x = 0 # 한 줄에 X가로 가로막혀 있다면 다시 누울 수 있으므로 그걸 활용해 .을 세어줄 변수 
+    for j in range(N): 
+        if graph[i][j] == '.': # 누울 수 공간이라면
+            x += 1 # 하나 추가! 
+            if x == 2 : # 만약 .이 2개로 누울 수 있는 공간이 충족됐다면
+                xCnt += 1 # 가로로 누울 수 있는 자리의 수 추가! 
+        else : 
+            x = 0
+
+# 세로 탐색
 for i in range(N):
+    y = 0
     for j in range(N):
-        graph[i][j] = input().strip()
-
-xCnt = 0
-yCnt = 0
-
-for i in range(N):
-    for j in range(N):
-        if graph[i][j] == '.' and j != N-1:
-            if graph[i][j+1] == '.':
-                xCnt += 1
-                break 
-
-
-for i in range(N):
-    for j in range(N):
-        if graph[j][i] == '.' and i != N-1:
-            if graph[j][i+1] == '.':
+        if graph[j][i] == '.':
+            y += 1
+            if y == 2 : 
                 yCnt += 1
-                break 
+        else : 
+            y = 0
 
             
 print(xCnt, yCnt)
